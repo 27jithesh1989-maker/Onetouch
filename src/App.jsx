@@ -5,20 +5,27 @@ import Dashboard from './components/Dashboard';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseHistory from './components/ExpenseHistory';
 import ProfitLoss from './components/ProfitLoss';
+import Auth from './components/Auth';
 import { useExpenses } from './hooks/useExpenses';
+import { useAuth } from './hooks/useAuth';
 
 function App() {
+  const { user, loading: authLoading } = useAuth();
   const {
     transactions,
-    loading,
+    loading: dataLoading,
     addTransaction,
     deleteTransaction,
     expenseCategories,
     incomeCategories
   } = useExpenses();
 
-  if (loading) {
+  if (authLoading || dataLoading) {
     return <div className="loading-screen">Loading your finances...</div>;
+  }
+
+  if (!user) {
+    return <Auth />;
   }
 
   return (

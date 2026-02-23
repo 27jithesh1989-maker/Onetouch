@@ -1,15 +1,21 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, PlusCircle, History, BarChart3 } from 'lucide-react';
+import { LayoutDashboard, PlusCircle, History, BarChart3, LogOut } from 'lucide-react';
 import Logo from './Logo';
+import { useAuth } from '../hooks/useAuth';
 
 const Navbar = () => {
+    const { signOut } = useAuth();
+
     return (
         <nav className="navbar">
             <div className="container nav-content">
-                <div className="logo">
-                    <Logo className="logo-icon" size={32} />
-                    <h1>Onetouch</h1>
+                <div className="logo-section">
+                    <div className="logo">
+                        <Logo className="logo-icon" size={32} />
+                        <h1>Onetouch</h1>
+                    </div>
                 </div>
+
                 <div className="nav-links">
                     <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>
                         <LayoutDashboard size={20} />
@@ -27,6 +33,13 @@ const Navbar = () => {
                         <History size={20} />
                         <span>History</span>
                     </NavLink>
+                </div>
+
+                <div className="nav-footer">
+                    <button onClick={signOut} className="btn-logout">
+                        <LogOut size={20} />
+                        <span>Sign Out</span>
+                    </button>
                 </div>
             </div>
         </nav>
