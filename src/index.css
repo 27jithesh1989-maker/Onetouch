@@ -201,6 +201,12 @@ main.container {
   color: var(--primary);
 }
 
+@media (max-width: 1024px) {
+  .navbar {
+    width: 240px;
+  }
+}
+
 @media (max-width: 768px) {
   .app-container {
     flex-direction: column;
@@ -211,24 +217,73 @@ main.container {
     height: auto;
     border-right: none;
     border-bottom: 1px solid var(--border);
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
   }
 
   .nav-content {
-    padding: 1rem;
+    padding: 0.75rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  .logo {
-    margin-bottom: 1rem;
+  .logo-section,
+  .nav-footer {
+    display: none;
   }
 
   .nav-links {
     flex-direction: row;
+    width: 100%;
     justify-content: space-around;
+    gap: 0;
   }
 
-  .nav-links span {
-    display: none;
+  .nav-links a {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+  }
+
+  .nav-links a span {
+    display: block !important;
+  }
+
+  .nav-links svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  main.container {
+    padding: 1.5rem 1rem 5rem;
+    /* Space for bottom nav */
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .glass-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .stat-info h3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -676,6 +731,7 @@ main.container {
     margin-bottom: 1rem;
   }
 }
+
 /* Auth Screens */
 .auth-container {
   display: flex;
@@ -752,6 +808,7 @@ main.container {
 .w-full {
   width: 100%;
 }
+
 .nav-footer {
   margin-top: auto;
   padding-top: 2rem;
@@ -776,4 +833,23 @@ main.container {
 .btn-logout:hover {
   background: #fff1f2;
   color: var(--danger);
+}
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column;
+  }
+  .form-actions button {
+    width: 100%;
+  }
+  .history-table th,
+  .history-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .notes-cell {
+    display: none;
+  }
+  .type-selector {
+    flex-direction: column;
+  }
 }
