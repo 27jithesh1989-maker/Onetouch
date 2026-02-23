@@ -853,3 +853,41 @@ main.container {
     flex-direction: column;
   }
 }
+/* Mobile App Enhancements */
+* {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.navbar, .nav-links a, .btn, h1, h2, h3, h4, span {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input, select, textarea {
+  font-size: 16px !important; /* Prevents auto-zoom on iOS focus */
+}
+
+@media (max-width: 768px) {
+  body {
+    overscroll-behavior-y: none; /* Prevents pull-to-refresh feel if not wanted */
+  }
+  
+  .navbar {
+    padding-bottom: env(safe-area-inset-bottom); /* Fix for modern iPhones */
+  }
+  
+  main.container {
+    padding-top: max(1.5rem, env(safe-area-inset-top));
+  }
+  
+  .nav-links a:active {
+    background: rgba(124, 58, 237, 0.1);
+    transform: scale(0.95);
+  }
+  
+  .btn:active {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+}
