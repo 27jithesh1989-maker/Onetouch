@@ -168,6 +168,11 @@ main.container {
   color: var(--primary);
 }
 
+.logo-icon {
+  color: #f43f5e;
+  /* Vibrant red from the provided logo */
+}
+
 .nav-links {
   display: flex;
   flex-direction: column;

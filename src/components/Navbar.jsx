@@ -1,13 +1,13 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, PlusCircle, History, Wallet, BarChart3 } from 'lucide-react';
+import { LayoutDashboard, PlusCircle, History, BarChart3 } from 'lucide-react';
+import Logo from './Logo';
 
 const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container nav-content">
                 <div className="logo">
-                    <Wallet className="primary-icon" size={28} />
+                    <Logo className="logo-icon" size={32} />
                     <h1>Onetouch</h1>
                 </div>
                 <div className="nav-links">
