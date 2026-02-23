@@ -6,6 +6,7 @@ import ExpenseForm from './components/ExpenseForm';
 import ExpenseHistory from './components/ExpenseHistory';
 import ProfitLoss from './components/ProfitLoss';
 import Auth from './components/Auth';
+import ChatBot from './components/ChatBot';
 import { useExpenses } from './hooks/useExpenses';
 import { useAuth } from './hooks/useAuth';
 
@@ -58,6 +59,7 @@ function App() {
             />
           </Routes>
         </main>
+        <ChatBot transactions={transactions} />
       </div>
     </Router>
   );
